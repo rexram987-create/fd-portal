@@ -39,7 +39,7 @@
         
         /* עיצוב רכיבים מורחבים */
         .content-card { background: white; padding: 2.5rem; border-radius: 2.5rem; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); margin-bottom: 2.5rem; }
-        .symptom-box { border-right: 12px solid #2563eb; }
+        .symptom-box { border-right: 12px solid #2563eb; padding-right: 2rem; }
         .research-box { border-top: 12px solid #1e40af; padding: 3rem; border-radius: 3.5rem; }
         .assoc-hero { background: #1e40af; color: white; padding: 4rem 2rem; border-radius: 4rem; text-align: center; margin-bottom: 3rem; }
         
@@ -99,9 +99,9 @@
             </div>
             <nav class="flex gap-2 overflow-x-auto no-scrollbar py-2">
                 <button onclick="showPage('home')" id="btn-home" class="nav-btn active px-6 py-3 rounded-2xl text-base font-bold whitespace-nowrap bg-blue-50 text-blue-800 transition-all shadow-sm">בית</button>
-                <button onclick="showPage('history')" id="btn-history" class="nav-btn px-6 py-3 rounded-2xl text-base font-bold whitespace-nowrap transition-all">היסטוריה</button>
+                <button onclick="showPage('history')" id="btn-history" class="nav-btn px-6 py-3 rounded-2xl text-base font-bold whitespace-nowrap transition-all">היסטוריה מלאה</button>
                 <button onclick="showPage('assoc')" id="btn-assoc" class="nav-btn px-6 py-3 rounded-2xl text-base font-bold whitespace-nowrap transition-all">העמותה הישראלית</button>
-                <button onclick="showPage('symptoms')" id="btn-symptoms" class="nav-btn px-6 py-3 rounded-2xl text-base font-bold whitespace-nowrap transition-all text-blue-700 font-extrabold">תסמינים מורחב</button>
+                <button onclick="showPage('symptoms')" id="btn-symptoms" class="nav-btn px-6 py-3 rounded-2xl text-base font-bold whitespace-nowrap transition-all">תסמינים מורחב</button>
                 <button onclick="showPage('israel-res')" id="btn-israel-res" class="nav-btn px-6 py-3 rounded-2xl text-base font-bold whitespace-nowrap transition-all text-blue-700 font-extrabold underline underline-offset-4">מחקר ישראל</button>
                 <button onclick="showPage('usa-res')" id="btn-usa-res" class="nav-btn px-6 py-3 rounded-2xl text-base font-bold whitespace-nowrap transition-all text-blue-700 font-extrabold underline underline-offset-4">מחקר בארה"ב</button>
             </nav>
@@ -120,47 +120,67 @@
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8 pt-10 text-center">
                     <button onclick="showPage('history')" class="group p-10 rounded-[4rem] border-4 border-amber-200 bg-amber-50 text-amber-900 flex flex-col items-center gap-5 transition-all hover:scale-105 shadow-md">
                         <span class="text-7xl group-hover:rotate-12 transition-transform">📜</span>
-                        <span class="font-black text-2xl">היסטוריה מלאה</span>
+                        <span class="font-black text-2xl">היסטוריית הגילוי</span>
+                        <p class="text-sm opacity-70">מסע של 76 שנה מ-1949</p>
                     </button>
                     <button onclick="showPage('assoc')" class="group p-10 rounded-[4rem] border-4 border-blue-200 bg-blue-600 text-white flex flex-col items-center gap-5 transition-all hover:scale-105 shadow-xl">
                         <span class="text-7xl group-hover:scale-110 transition-transform">🏠</span>
-                        <span class="font-black text-2xl">העמותה שלנו</span>
+                        <span class="font-black text-2xl">העמותה והקהילה</span>
+                        <p class="text-sm opacity-90">בית חם וערבות הדדית</p>
                     </button>
                     <button onclick="showPage('symptoms')" class="group p-10 rounded-[4rem] border-4 border-green-200 bg-green-50 text-green-900 flex flex-col items-center gap-5 transition-all hover:scale-105 shadow-md">
                         <span class="text-7xl group-hover:scale-110 transition-transform">🩺</span>
-                        <span class="font-black text-2xl">תסמינים מורחב</span>
+                        <span class="font-black text-2xl">הבנת התסמינים</span>
+                        <p class="text-sm opacity-70">פירוט רפואי ומערכתי</p>
                     </button>
                 </div>
             </div>
         </section>
 
-        <!-- היסטוריה -->
+        <!-- היסטוריה (מורחב מאוד) -->
         <section id="history" class="page">
             <h2 class="font-black text-blue-900 mb-16 text-center italic tracking-tight underline decoration-blue-200 underline-offset-8 dynamic-h2">היסטוריה: מסימפטומים לפתרונות גנטיים</h2>
             <div class="space-y-24 relative border-r-8 border-slate-200 pr-12 max-w-5xl mx-auto py-10">
+                
                 <div class="relative">
-                    <div class="absolute -right-[98px] top-0 w-24 h-24 bg-blue-600 rounded-full border-8 border-slate-50 flex items-center justify-center text-white font-black shadow-xl"><span class="text-2xl">1949</span></div>
+                    <div class="absolute -right-[98px] top-0 w-24 h-24 bg-blue-600 rounded-full border-8 border-slate-50 flex items-center justify-center text-white font-black shadow-xl"><span class="text-xl">1949</span></div>
                     <div class="content-card">
-                        <h4 class="font-black mb-6 text-blue-800 underline text-3xl italic">הגילוי הראשון של ריילי ודיי</h4>
-                        <p class="dynamic-p leading-relaxed text-xl">ד"ר קונרד ריילי וד"ר ריצ'רד דיי מפרסמים את המאמר הראשון המתאר חמישה ילדים יהודים אשכנזים עם תסמינים דומים. המחלה הוגדרה רשמית כישות רפואית ייחודית בקהילה.</p>
+                        <h4 class="font-black mb-6 text-blue-800 underline text-3xl">התיאור הקליני הראשון</h4>
+                        <p class="mb-4 text-xl leading-relaxed dynamic-p font-medium">ד"ר קונרד ריילי וד"ר ריצ'רד דיי, רופאי ילדים מאוניברסיטת ניו יורק וקולומביה, מפרסמים בכתב העת 'Journal of Pediatrics' את התיאור הראשון של חמישה ילדים יהודים עם תסמינים דומים: חוסר דמעות, ירידה בתגובה לכאב, ולחץ דם משתנה. המחלה הוגדרה רשמית כישות רפואית עצמאית בקרב יהודים אשכנזים.</p>
+                        <p class="opacity-70 text-lg italic dynamic-p">בעשורים שלאחר מכן, ד"ר פלישיה אקסלרוד הפכה לדמות המרכזית בטיפול הקליני, והקימה את המרכז הייעודי ב-NYU שהפך ללב הפעילות העולמית.</p>
                     </div>
                 </div>
+
                 <div class="relative">
-                    <div class="absolute -right-[98px] top-0 w-24 h-24 bg-blue-600 rounded-full border-8 border-slate-50 flex items-center justify-center text-white font-black shadow-xl"><span class="text-2xl">1954</span></div>
+                    <div class="absolute -right-[98px] top-0 w-24 h-24 bg-blue-600 rounded-full border-8 border-slate-50 flex items-center justify-center text-white font-black shadow-xl"><span class="text-xl">1954</span></div>
                     <div class="content-card">
-                        <h4 class="font-black mb-6 text-blue-800 underline text-3xl italic">הקמה רשמית בארה"ב</h4>
-                        <p class="dynamic-p leading-relaxed text-xl">פיי ופיליפ וקסלר רושמים רשמית את ה-Dysautonomia Foundation בניו יורק. הרישום ב-1954 איפשר להפוך לעמותת הורים בינלאומית המנהלת ומתקצבת מחקרים רפואיים גלובליים.</p>
+                        <h4 class="font-black mb-6 text-blue-800 underline text-3xl">הקמה רשמית בארה"ב</h4>
+                        <p class="dynamic-p leading-relaxed text-xl">פיי ופיליפ וקסלר רושמים רשמית את ה-Dysautonomia Foundation כארגון ללא מטרות רווח. למרות שהמפגשים החלו ב-1951, ההתאגדות הרשמית ב-1954 איפשרה את תחילת המימון המסיבי למחקר רפואי והפיכת עמותת הורים לכוח מוביל במדע העולמי.</p>
                     </div>
                 </div>
+
+                <div class="relative">
+                    <div class="absolute -right-[98px] top-0 w-24 h-24 bg-blue-600 rounded-full border-8 border-slate-50 flex items-center justify-center text-white font-black shadow-xl"><span class="text-xl">1983</span></div>
+                    <div class="content-card">
+                        <h4 class="font-black mb-6 text-blue-800 underline text-3xl">התאחדות המשפחות בישראל</h4>
+                        <p class="dynamic-p leading-relaxed text-xl">קבוצת הורים ישראלים מקימה את העמותה המקומית. המטרה היתה ליצור רשת ביטחון עבור החולים בישראל, מה שהוביל להקמת המרפאה הייעודית בבית החולים הדסה הר הצופים בירושלים – מרכז שהפך למוביל עולמי בניהול קליני.</p>
+                    </div>
+                </div>
+
                 <div class="relative bg-blue-900 text-white p-16 rounded-[5rem] shadow-2xl border-r-[20px] border-blue-400">
-                    <div class="absolute -right-[98px] top-10 w-24 h-24 bg-blue-500 rounded-full border-8 border-slate-50 flex items-center justify-center text-white font-black shadow-xl"><span class="text-2xl">2001</span></div>
-                    <h4 class="font-black mb-8 italic text-4xl underline decoration-blue-300">פענוח הגן ELP1</h4>
-                    <p class="text-2xl mb-6 font-bold leading-tight dynamic-p">זיהוי המוטציה המדויקת בגן IKBKAP (היום ELP1) על ידי ד"ר סוזן סלאוגנהאופט. זהו הרגע ששינה את פני המחלה ואפשר בדיקות סקר המוניות ופיתוח טיפולים גנטיים.</p>
+                    <div class="absolute -right-[98px] top-10 w-24 h-24 bg-blue-500 rounded-full border-8 border-slate-50 flex items-center justify-center text-white font-black shadow-xl"><span class="text-xl">2001</span></div>
+                    <h4 class="font-black mb-8 italic text-4xl underline decoration-blue-300">פריצת הדרך: פענוח הגן ELP1</h4>
+                    <p class="text-xl mb-6 leading-relaxed font-bold dynamic-p">צוות חוקרים מאוניברסיטת הרווארד ו-MGH, בראשות ד"ר סוזן סלאוגנהאופט, מזהה את המוטציה המדויקת בגן ELP1 (IKBKAP). הגילוי שינה את העולם:</p>
+                    <div class="space-y-4 text-xl">
+                        <p>🔹 **מניעה:** החלו בדיקות סקר גנטיות רחבות לכל הציבור האשכנזי.</p>
+                        <p>🔹 **אבחון טרום-השרשה (PGD):** אפשרות להורים נשאים להוליד ילדים בריאים דרך הפריה חוץ-גופית.</p>
+                        <p>🔹 **ריפוי ממוקד:** התחלת המרוץ למציאת מולקולות שמתקנות את הפגם הגנטי בתא.</p>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- העמותה הישראלית (מורחב מאוד) -->
+        <!-- העמותה הישראלית (מורחב ומפורט ביותר) -->
         <section id="assoc" class="page">
             <div class="assoc-hero shadow-2xl">
                 <h2 class="font-black mb-8 uppercase tracking-tighter dynamic-h2">העמותה הישראלית לדיסאוטונומיה משפחתית</h2>
@@ -169,124 +189,164 @@
                 </p>
             </div>
 
-            <div class="space-y-16 max-w-5xl mx-auto text-xl leading-relaxed">
-                <div class="content-card !p-12 border-b-[15px] border-blue-600 shadow-xl">
-                    <h3 class="dynamic-h3 font-black text-blue-900 mb-8 underline decoration-blue-300 italic uppercase">📜 היסטוריה ומנהיגות</h3>
-                    <div class="space-y-8 dynamic-p">
-                        <p>העמותה הישראלית הוקמה בשנת 1983 ומנוהלת מאז ב-100% בהתנדבות. אין לנו מנכ"ל בשכר. הוועד מורכב מהורים ובוגרים בקהילה המקדישים את זמנם ללא תמורה. כל שקל שנתרם מגיע ישירות לטובת החולים והמחקר המדעי.</p>
+            <div class="space-y-12 max-w-5xl mx-auto text-xl leading-relaxed">
+                <div class="content-card !p-12 border-b-[15px] border-blue-600">
+                    <h3 class="dynamic-h3 font-black text-blue-900 mb-6 uppercase italic">📜 היסטוריה, חזון וניהול</h3>
+                    <div class="space-y-6 text-xl leading-relaxed dynamic-p">
+                        <p>העמותה הישראלית הוקמה ב-1983 ומנוהלת מאז ב-100% בהתנדבות. בניגוד לעמותות רבות, **אין לנו מנכ"ל בשכר**. ועד העמותה מורכב מהורים ובוגרים בקהילה המקדישים את זמנם ללא כל תמורה. עובדה זו מבטיחה שכל שקל שנתרם מופנה ישירות לרווחת החולים ולמחקר המדעי באוניברסיטת תל אביב.</p>
+                        <p>העמותה פועלת בשלושה מישורים מרכזיים: **קליני** (דרך המרכזים הרפואיים), **סוציאלי-בירוקרטי** (מיצוי זכויות), ו**מחקרי** (מימון המעבדות בארץ).</p>
                     </div>
                 </div>
 
-                <div class="grid md:grid-cols-2 gap-12">
-                    <div class="content-card shadow-2xl !p-12 border-r-[18px] border-blue-600 bg-white">
-                        <h4 class="text-3xl font-black mb-10 text-blue-800 underline uppercase italic">פרויקט 365: מענה לכל צורך</h4>
-                        <ul class="space-y-10 text-2xl font-bold text-slate-800 list-none p-0">
-                            <li class="flex gap-5 items-start">
-                                <span class="bg-blue-100 p-2 rounded-full text-xl">✅</span> 
-                                <span>**ציוד נשימתי:** השאלת מחוללי חמצן, מכשירי סקשן, סיפאפ, ביפאפ, ומכשירי שיעול לטיפול ביתי.</span>
-                            </li>
-                            <li class="flex gap-5 items-start">
-                                <span class="bg-blue-100 p-2 rounded-full text-xl">✅</span> 
-                                <span>**סבסוד פיזיותרפיה:** מימון אלפי טיפולי פיזיותרפיה נשימתית והידרותרפיה בבית המטופל למניעת דלקות ריאה.</span>
-                            </li>
-                            <li class="flex gap-5 items-start">
-                                <span class="bg-blue-100 p-2 rounded-full text-xl">✅</span> 
-                                <span>**מיצוי זכויות:** ליווי אישי מול המוסד לביטוח לאומי ומשרד הבריאות.</span>
-                            </li>
+                <div class="grid md:grid-cols-2 gap-10">
+                    <div class="research-box shadow-md !border-t-0 !p-12 border-r-10 border-blue-600 bg-white">
+                        <h4 class="text-3xl font-black mb-8 text-blue-800 underline uppercase italic">פרויקט 365: מעטפת לחיים</h4>
+                        <p class="mb-8 font-bold text-blue-900 text-lg border-b-2 border-blue-100 pb-4">מענה מיידי 365 ימים בשנה לכל צורך רפואי או לוגיסטי:</p>
+                        <ul class="space-y-6 text-xl font-bold text-slate-800">
+                            <li class="flex gap-4 items-start"><span>✅</span> <span>**השאלת ציוד מציל חיים:** מחוללי חמצן, מכשירי סקשן (שאיבת ליחה), סיפאפ, ביפאפ, ומכשירי שיעול (Cough Assist) לטיפול נשימתי בבית.</span></li>
+                            <li class="flex gap-4 items-start"><span>✅</span> <span>**סבסוד טיפולים:** מימון אלפי טיפולי פיזיותרפיה נשימתית והידרותרפיה מדי שנה למטופלים בכל רחבי הארץ למניעת דלקות ריאה.</span></li>
+                            <li class="flex gap-4 items-start"><span>✅</span> <span>**מיצוי זכויות:** ייצוג אישי וייעוץ מול המוסד לביטוח לאומי, קופות החולים ומשרד הבריאות.</span></li>
                         </ul>
                     </div>
-                    <div class="content-card shadow-2xl !p-12 bg-slate-900 text-white border-t-[15px] border-blue-400">
-                        <h4 class="text-3xl font-black mb-10 text-blue-400 underline uppercase italic">המרכז בהר הצופים והשלוחות</h4>
+                    <div class="research-box shadow-md !border-t-0 !p-12 bg-slate-900 text-white">
+                        <h4 class="text-3xl font-black mb-8 text-blue-400 underline uppercase italic">המרכז הרפואי והמחקר</h4>
                         <div class="space-y-8 dynamic-p opacity-90 leading-relaxed">
                             <p class="font-bold border-r-4 border-blue-500 pr-4">המרכז בהר הצופים הוקם ע"י פרופ' חני מעיין והשלוחה העיקרית בבית חולים תל-השומר בניהולה המקצועי של ד''ר אלומה בת-אל.</p>
-                            <p>העמותה היא המממנת והשותפה המרכזית בניהול המרפאות הרב-תחומיות, המעניקות טיפול רב-תחומי (נשימתי, תזונתי, אורתופדי) תחת קורת גג אחת.</p>
+                            <p>העמותה היא השותפה המרכזית בניהול המרפאות המעניקות טיפול רב-תחומי (נשימתי, תזונתי, אורתופדי) תחת קורת גג אחת.</p>
+                            <p>אנו מממנים את מחקרו של **פרופ' מיגל וייל** באוניברסיטת תל אביב למציאת תרופות מותאמות אישית, מה שמהווה תקווה ממשית לשיפור חיי החולים.</p>
                         </div>
                     </div>
                 </div>
 
-                <div class="content-card shadow-2xl border-b-[15px] border-blue-900 overflow-hidden">
-                    <h3 class="dynamic-h3 font-black text-blue-900 mb-10 italic uppercase underline decoration-blue-300">❤️ חוסן חברתי ונופש משפחות</h3>
-                    <div class="space-y-10 dynamic-p">
-                        <p>העמותה מפיגה את הבדידות של המשפחות. אירוע השיא הוא **"נופש המשפחות"** השנתי – שלושה ימים שבהם הורים ובוגרים חולקים ידע וניסיון חיים, ומקבלים כלים להתמודדות.</p>
-                        <div class="grid sm:grid-cols-2 gap-8 pt-6">
-                            <div class="bg-blue-100 p-8 rounded-3xl text-center font-black text-blue-900 shadow-inner text-2xl uppercase italic text-xl">ימי כיף וקייטנות מונגשות</div>
-                            <div class="bg-blue-100 p-8 rounded-3xl text-center font-black text-blue-900 shadow-inner text-2xl uppercase italic text-xl">סדנאות תמיכה להורים ולבוגרים</div>
+                <div class="content-card shadow-2xl border-b-[15px] border-blue-900 overflow-hidden relative">
+                    <h3 class="dynamic-h3 font-black text-blue-900 mb-8 italic uppercase underline decoration-blue-300">❤️ חוסן חברתי ונופש משפחות</h3>
+                    <div class="space-y-8 text-xl leading-relaxed dynamic-p">
+                        <p>העמותה מפיגה את הבדידות ומחזקת את החוסן הנפשי. אירוע השיא הוא **"נופש המשפחות"** השנתי – שלושה ימים שבהם הורים ובוגרים חולקים ידע וניסיון חיים שלא ניתן למצוא בשום ספר רפואה, ומקבלים כלים להתמודדות.</p>
+                        <div class="grid sm:grid-cols-2 gap-6 pt-6">
+                            <div class="bg-blue-100 p-8 rounded-3xl text-center font-black text-blue-900 shadow-inner text-2xl uppercase italic">ימי כיף וקייטנות מונגשות</div>
+                            <div class="bg-blue-100 p-8 rounded-3xl text-center font-black text-blue-900 shadow-inner text-2xl uppercase italic">סדנאות תמיכה להורים ולבוגרים</div>
                         </div>
                     </div>
                 </div>
             </div>
 
             <div class="mt-20 p-16 bg-white border-8 border-dashed border-blue-300 rounded-[5rem] text-center shadow-2xl max-w-4xl mx-auto transition-transform hover:scale-105">
-                <h3 class="text-4xl font-black text-blue-950 mb-6 uppercase tracking-tighter italic">צור קשר עם ועד המשפחות</h3>
-                <p class="text-7xl font-black text-blue-600 mb-6 tabular-nums tracking-tighter">054-5701415</p>
-                <p class="text-2xl font-bold opacity-70 mb-4 dynamic-p">אנחנו כאן בשבילך - משפחה אחת גדולה וערבה זה לזה.</p>
+                <h3 class="text-4xl font-black text-blue-950 mb-6 uppercase tracking-tighter">צור קשר עם ועד המשפחות</h3>
+                <p class="text-7xl font-black text-blue-600 mb-4 tabular-nums tracking-tighter">054-5701415</p>
+                <p class="text-2xl font-bold opacity-70 mb-4">אנחנו כאן בשבילך - משפחה אחת גדולה וערבה זה לזה.</p>
                 <p class="text-xl text-blue-800 font-bold underline">fdisrael@netvision.net.il</p>
             </div>
         </section>
 
-        <!-- תסמינים (פירוט מלא) -->
+        <!-- תסמינים (פירוט רפואי מלא וטכני) -->
         <section id="symptoms" class="page">
             <h2 class="font-black text-center mb-16 text-blue-950 italic underline decoration-blue-500 decoration-8 dynamic-h2">התסמינים: הבנה מולקולרית וקלינית</h2>
             <div class="space-y-16 max-w-5xl mx-auto">
+                
                 <div class="content-card symptom-box shadow-lg">
                     <h3 class="font-black text-blue-800 mb-8 flex items-center gap-4 italic underline text-4xl">🧠 המערכת האוטונומית (Dysautonomia)</h3>
-                    <div class="space-y-8 dynamic-p leading-relaxed text-xl font-medium">
-                        <p>ב-FD, המחסור בחלבון ELP1 גורם לניוון של סיבי העצב השולטים בלחץ הדם ובקצב הלב. המערכת לא יודעת לווסת את עצמה, מה שגורם ל"סערה אדרנרגית" שיוצאת משליטה.</p>
-                        <ul class="list-disc pr-8 space-y-6">
-                            <li><strong>חוסר יציבות המודינמי:</strong> זינוקים חדים בלחץ הדם בסטרס וצניחות חריפות במעבר לעמידה.</li>
-                            <li><strong>Blotching:</strong> הופעת כתמי סומק אדומים בולטים על הגוף כתגובה לאכילה או רגש.</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="content-card symptom-box border-r-red-600 shadow-lg">
-                    <h3 class="font-black text-red-700 mb-8 flex items-center gap-4 italic underline text-4xl">⚠️ המשבר הדיסאוטונומי (The Crisis)</h3>
-                    <p class="text-xl opacity-80 leading-relaxed dynamic-p">המשבר הוא מצב חירום גופני המתאפיין בבחילות והקאות בלתי פוסקות, עליית חום גוף חריפה, לחץ דם גבוה מאוד, עצבנות קיצונית ושינויים במצב הרוח. דורש טיפול תרופתי הרגעה חזק.</p>
-                </div>
-                <div class="content-card symptom-box border-r-blue-400 shadow-lg">
-                    <h3 class="font-black text-blue-800 mb-8 flex items-center gap-4 italic underline text-4xl">💧 עיניים וראייה (Alacrima)</h3>
-                    <p class="text-xl leading-relaxed dynamic-p">חולי FD אינם מייצרים דמעות. הדבר גורם ליובש כרוני וסכנה לכיבים בקרנית. ללא טיפול קפדני בטיפות לחות כל שעה, מתפתח ניוון של עצב הראייה.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- מחקר ישראל -->
-        <section id="israel-res" class="page">
-            <h2 class="font-black text-blue-900 mb-20 text-center tracking-tighter underline decoration-blue-600 decoration-8 dynamic-h2 uppercase italic">המוח הישראלי בחזית המדע</h2>
-            <div class="space-y-16 max-w-5xl mx-auto">
-                <div class="content-card research-box shadow-2xl">
-                    <h3 class="font-black mb-10 text-blue-900 underline text-4xl uppercase italic">🧬 פרופ' מיגל וייל (אוניברסיטת תל אביב)</h3>
-                    <div class="space-y-10 text-2xl text-slate-800 leading-relaxed font-medium dynamic-p">
-                        <p class="font-bold text-blue-700 italic">המרכז בהר הצופים שהוקם ע"י פרופ' חני מעיין והשלוחה העיקרית בבית חולים תל-השומר בניהולה המקצועי של ד''ר אלומה בת-אל.</p>
-                        <p class="p-10 bg-blue-50 rounded-4xl border-r-[15px] border-blue-600 shadow-md">
-                            <strong>Personalized Medicine:</strong> המעבדה משתמשת בתאים של החולים עצמם כדי לבדוק תרופות על "המודל החי" של החולה הספציפי. סריקה רחבה של אלפי תרופות קיימות מאפשרת לזהות מענה מהיר.
-                        </p>
-                    </div>
-                </div>
-                <div class="content-card research-box bg-slate-900 text-white border-blue-400">
-                    <h3 class="font-black mb-10 text-blue-400 italic text-4xl uppercase underline decoration-blue-400/20">🧬 פרופ' גיל אסט - מומחה השחבור</h3>
-                    <p class="text-xl opacity-95 leading-relaxed dynamic-p">מחקריו של פרופ' אסט הסבירו ברמה המולקולרית מדוע הגוף "מדלג" על אקסון 20. הוא הוכיח שניתן לתקן את השחבור בעזרת מולקולות קטנות.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- מחקר בארה"ב -->
-        <section id="usa-res" class="page">
-            <h2 class="font-black text-slate-900 mb-20 text-center tracking-tighter underline decoration-slate-400 decoration-8 dynamic-h2 uppercase italic">המהפכה הגנטית בארה"ב</h2>
-            <div class="space-y-16 max-w-5xl mx-auto">
-                <div class="content-card research-box border-t-blue-600 shadow-2xl">
-                    <h3 class="text-blue-800 mb-10 flex items-center gap-6 underline text-4xl font-black italic uppercase">1. טיפול ה-ASO (Antisense)</h3>
-                    <div class="space-y-10 text-2xl leading-relaxed dynamic-p">
-                        <div class="p-12 bg-slate-50 rounded-4xl shadow-inner border border-blue-100 text-slate-800">
-                            <h5 class="font-black text-blue-700 mb-6 underline text-2xl uppercase tracking-tighter italic">המנגנון המולקולרי:</h5>
-                            <p>מולקולות ה-ASO פועלות כ"מסיכה" המסתירה את האזור הפגום ב-RNA, ובכך מכריחות את המכונה התאית לכלול את אקסון 20 במוצר הסופי. ניסוי פורץ דרך ב-NYU Langone הראה עלייה דרמטית ברמות החלבון.</p>
+                    <div class="space-y-8 dynamic-p leading-relaxed text-xl">
+                        <p>מערכת העצבים האוטונומית היא ה"טייס האוטומטי" האחראי על פעולות לא-רצוניות (הומאוסטזיס). ב-FD, המחסור בחלבון ELP1 גורם לניוון הדרגתי של סיבי העצב השולטים בלחץ הדם, קצב הלב, העיכול והנשימה.</p>
+                        <div class="p-8 bg-blue-50 rounded-3xl border-l-8 border-blue-600 font-medium text-blue-950">
+                            <ul class="list-disc pr-8 space-y-6">
+                                <li><strong>חוסר יציבות המודינמי:</strong> זינוקים חדים בלחץ הדם בזמן התרגשות או כאב (Stress Hypertension) וצניחות חריפות במעבר לעמידה (Orthostatic Hypotension), העלולות לגרום לעילפון.</li>
+                                <li><strong>Blotching:</strong> הופעת כתמי סומק אדומים בולטים על הגוף כתגובה לאכילה או רגש.</li>
+                                <li><strong>ויסות טמפרטורה:</strong> הזעה מוגברת וקיצונית וחוסר יכולת של הגוף לקרר או לחמם את עצמו ביעילות.</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
+
+                <div class="content-card symptom-box border-r-red-600 shadow-lg">
+                    <h3 class="font-black text-red-700 mb-8 flex items-center gap-4 italic underline text-4xl">⚠️ המשבר הדיסאוטונומי (The Crisis)</h3>
+                    <div class="space-y-8 dynamic-p leading-relaxed text-xl">
+                        <p>המשבר הוא אירוע פיזיולוגי סוער ודרמטי של מערכת העצבים הסימפתטית (Adrenergic Surge). הוא נגרם לרוב מזיהום, סטרס רגשי או כאב נסתר.</p>
+                        <div class="bg-red-50 p-8 rounded-3xl border border-red-200">
+                            <p class="font-black mb-4 text-red-900 underline text-2xl uppercase">מאפייני המשבר:</p>
+                            <p>בחילות והקאות בלתי פוסקות (לעיתים כל 10 דקות), עליית חום גוף חריפה ללא זיהום, לחץ דם גבוה מאוד, דופק מהיר, עצבנות קיצונית ושינויים במצב הרוח. מצב זה דורש טיפול תרופתי הרגעה חזק (כגון דיאזפאם) בפיקוח רפואי צמוד למניעת סיבוכים מוחיים.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-card symptom-box border-r-blue-400 shadow-lg">
+                    <h3 class="font-black text-blue-800 mb-8 flex items-center gap-4 italic underline text-4xl">💧 עיניים וראייה (Alacrima)</h3>
+                    <div class="space-y-8 dynamic-p leading-relaxed text-xl">
+                        <p><strong>היעדר ייצור דמעות:</strong> חולי FD נולדים ללא יכולת לייצר דמעות רגשיות או רפלקסיביות. הדבר גורם ליובש כרוני וקשה בקרנית.</p>
+                        <p><strong>הסכנה:</strong> היובש מוביל לכיבים בקרנית והצטלקויות. בנוסף, מתפתח ניוון הדרגתי של עצב הראייה (Optic Neuropathy), המוביל לאובדן ראייה הדרגתי ללא טיפול קפדני בטיפות לחות ומשחות לאורך כל שעות היממה.</p>
+                    </div>
+                </div>
+
+                <div class="content-card symptom-box border-r-amber-500 shadow-lg">
+                    <h3 class="font-black text-blue-800 mb-8 flex items-center gap-4 italic underline text-4xl">🌡️ חוסר תחושת כאב וטמפרטורה</h3>
+                    <div class="space-y-8 dynamic-p leading-relaxed text-xl">
+                        <p>החולים סובלים ממחסור בסיבי עצב תחושתיים קטנים (A-delta ו-C fibers). כתוצאה מכך, המוח אינו מקבל אותות אזהרה על נזק לרקמות.</p>
+                        <p class="p-8 bg-amber-50 rounded-3xl border border-amber-200 font-bold text-amber-950 uppercase italic shadow-inner">
+                            מצב מסוכן: חולה יכול לקבל כוויה קשה ממים חמים, לשבור עצם או להיפצע פציעה עמוקה מבלי להרגיש דבר. הדבר מחייב את ההורים לבצע בדיקה גופנית מלאה מדי יום.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="content-card symptom-box border-r-indigo-900 shadow-lg">
+                    <h3 class="font-black text-blue-800 mb-8 flex items-center gap-4 italic underline text-4xl">🥣 בליעה, נשימה ועיכול</h3>
+                    <div class="space-y-8 dynamic-p leading-relaxed text-xl">
+                        <p><strong>דיספאגיה (קשיי בליעה):</strong> חוסר קואורדינציה בשרירי הבליעה מוביל ל**אספירציות** (שאיפת מזון לריאות). זהו הגורם העיקרי לדלקות ריאה חוזרות ונזק ריאתי מצטבר.</p>
+                        <p><strong>פתרונות:</strong> רוב החולים נעזרים ב"גסטרוסטום" (G-tube) להבטחת תזונה בטוחה. בנוסף, עקמת קשה (Scoliosis) היא נפוצה מאוד ודורשת ניתוחים אורתופדיים מורכבים.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- מחקר בישראל (פירוט טכני מלא) -->
+        <section id="israel-res" class="page">
+            <h2 class="font-black text-blue-900 mb-20 text-center tracking-tighter underline decoration-blue-600 decoration-8 dynamic-h2 uppercase italic">המוח הישראלי בחזית המדע</h2>
+            <div class="space-y-16 max-w-5xl mx-auto">
+                
+                <div class="content-card research-box shadow-2xl">
+                    <h3 class="font-black mb-10 text-blue-900 underline text-4xl uppercase italic">🧬 פרופ' מיגל וייל (אוניברסיטת תל אביב)</h3>
+                    <div class="space-y-10 text-2xl text-slate-800 leading-relaxed font-medium dynamic-p">
+                        <p class="font-black text-blue-700 underline text-2xl uppercase italic">רפואה מותאמת אישית (Personalized Medicine):</p>
+                        <p>המעבדה של פרופ' מיגל וייל מובילה בגישת ה-**Personalized Medicine**. המחקר מתבסס על ההבנה שלכל חולה יש "פרופיל תגובה" שונה לתרופות בשל השונות הגנטית האישית שלו.</p>
+                        <div class="p-10 bg-blue-50 rounded-4xl border-r-[15px] border-blue-600 shadow-md">
+                            <p class="mb-6"><strong>תהליך ה-Drug Repurposing:</strong> המעבדה אוספת דגימות עור מהחולים ומגדלת תאי פיברובלאסטים או תאי גזע מושרים (iPSCs). בעזרת מערכות רובוטיות ואוטומציה, המעבדה סורקת אלפי תרופות שכבר אושרו לשימושים אחרים.</p>
+                            <p><strong>המטרה:</strong> זיהוי תרופות קיימות שמצליחות "לשכנע" את התאים של חולה ספציפי לייצר יותר מהחלבון החסר ELP1. שיטה זו מקצרת דרמטית את הדרך לטיפול קליני בטוח.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-card research-box bg-slate-900 text-white border-blue-400">
+                    <h3 class="font-black mb-10 text-blue-400 italic text-4xl uppercase underline decoration-blue-400/20 italic">🧬 פרופ' גיל אסט - מומחה השחבור</h3>
+                    <div class="space-y-8 text-xl leading-relaxed opacity-95 font-medium dynamic-p">
+                        <p><strong>פענוח המנגנון המולקולרי:</strong> המחקר של פרופ' אסט באוניברסיטת תל אביב סיפק לעולם את המפתח להבנת ה-FD ברמת ה-RNA. הוא גילה כיצד המוטציה גורמת למנגנון התאי "לדלג" על חלק חיוני בגן (אקסון 20) בזמן השחבור (Splicing).</p>
+                        <p class="p-10 border-r-8 border-blue-500 bg-white/5 rounded-3xl italic font-bold text-blue-200">הישג מרכזי: המעבדה הוכיחה כי ניתן לתקן את שגיאת השחבור הזו בעזרת מולקולות קטנות (כמו נגזרות קינטין), מה שהניח את היסודות לכל הטיפולים הגנטיים המודרניים.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- מחקר בארה"ב (פירוט טכני מלא) -->
+        <section id="usa-res" class="page">
+            <h2 class="font-black text-slate-900 mb-20 text-center tracking-tighter underline decoration-slate-400 decoration-8 dynamic-h2 uppercase italic">המהפכה הגנטית בארה"ב</h2>
+            <div class="space-y-16 max-w-5xl mx-auto">
+                
                 <div class="content-card research-box border-t-blue-600 shadow-2xl">
-                    <h3 class="text-blue-800 mb-10 flex items-center gap-6 underline text-4xl font-black italic uppercase">2. ריפוי גנטי לרשתית (AAV)</h3>
+                    <h3 class="text-blue-800 mb-10 flex items-center gap-6 underline text-4xl font-black italic uppercase italic">1. טיפול ה-ASO (Antisense Oligonucleotides)</h3>
+                    <div class="space-y-10 text-2xl leading-relaxed dynamic-p">
+                        <div class="p-12 bg-slate-50 rounded-4xl shadow-inner border border-blue-100 text-slate-800">
+                            <h5 class="font-black text-blue-700 mb-6 underline text-2xl uppercase tracking-tighter italic">המנגנון המולקולרי:</h5>
+                            <p>מולקולות ה-ASO הן "פיסות" RNA קטנות שתוכננו להיצמד בדיוק לנקודת המוטציה על ה-pre-mRNA. הן פועלות כ"מסיכה" המסתירה את האזור הפגום, ובכך מכריחות את המכונה התאית לכלול את אקסון 20 במוצר הסופי. התוצאה: התא מייצר חלבון ELP1 מלא ותקין.</p>
+                        </div>
+                        <div class="p-12 bg-blue-900 text-white rounded-4xl shadow-2xl">
+                            <h5 class="font-black text-blue-300 mb-6 underline text-2xl uppercase tracking-tighter italic">סטטוס קליני ב-NYU:</h5>
+                            <p>במרכז NYU Langone ובשיתוף קרן n-Lorem, מתקיים ניסוי פורץ דרך (N-of-1 trial) שבו הטיפול ניתן בהזרקה לנוזל חוט השדרה (Intrathecal Injection) כדי להגיע למערכת העצבים המרכזית. התוצאות הראשוניות הראו עלייה דרמטית ברמות החלבון.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-card research-box border-t-blue-600 shadow-2xl">
+                    <h3 class="text-blue-800 mb-10 flex items-center gap-6 underline text-4xl font-black italic uppercase italic">2. ריפוי גנטי לרשתית (AAV Gene Therapy)</h3>
                     <div class="p-12 bg-blue-50 rounded-5xl border-r-[20px] border-blue-900 text-2xl leading-relaxed shadow-lg dynamic-p text-blue-950 font-medium">
                         <h5 class="font-black text-blue-950 mb-6 underline text-3xl uppercase tracking-tighter italic">הצלת הראייה:</h5>
-                        <p>שימוש בנגיף מהונדס (AAV) כ"מעבורת" להחדרת עותק תקין לגמרי של הגן ELP1 ישירות לתאי הרשתית כדי לעצור את מות תאי עצב הראייה ולמנוע עיוורון.</p>
+                        <p>חוקרים בארה"ב פיתחו שיטה להזרקת עותק תקין לגמרי של הגן ELP1 ישירות לתאי הרשתית באמצעות וקטור נגיפי (AAV). הנגיף משמש כ"מעבורת" המכניסה את הגן לתאים כדי לעצור את מות תאי עצב הראייה ולמנוע עיוורון. מחקר זה מבוצע בשיתוף פעולה עם חברת PTC Therapeutics.</p>
                     </div>
                 </div>
             </div>
@@ -294,26 +354,26 @@
 
     </main>
 
-    <!-- פוטר -->
+    <!-- פוטר עם מקורות מלאים -->
     <footer class="py-24 bg-slate-100 border-t-8 border-slate-200 mt-auto">
         <div class="max-w-7xl mx-auto px-6 text-center">
             <h4 class="font-black text-4xl mb-16 italic tracking-tighter uppercase underline underline-offset-8 decoration-blue-400">מקורות וסימוכין לאתר</h4>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 text-right font-bold text-sm">
                 <div class="p-8 bg-white rounded-3xl border shadow-sm transition-transform hover:scale-105">
                     <p class="text-blue-700 underline text-xl font-black mb-2 uppercase">FD Foundation (USA)</p>
-                    <p class="opacity-70 leading-relaxed italic dynamic-p text-sm">היסטוריה רשמית מ-1954, דוחות מחקר NYU 2025.</p>
+                    <p class="opacity-70 leading-relaxed italic dynamic-p text-sm">היסטוריה רשמית מ-1954 (Incorporated), דוחות מחקר NYU 2025 ומידע על ניסויי ASO ו-Gene Therapy.</p>
+                </div>
+                <div class="p-8 bg-white rounded-3xl border shadow-sm transition-transform hover:scale-105">
+                    <p class="text-blue-700 underline text-xl font-black mb-2 uppercase">מעבדת פרופ' מיגל וייל</p>
+                    <p class="opacity-70 leading-relaxed italic dynamic-p text-sm">פרסומים אקדמיים על Personalized Medicine, Drug Screening ושימוש בפיברובלאסטים (TAU).</p>
+                </div>
+                <div class="p-8 bg-white rounded-3xl border shadow-sm transition-transform hover:scale-105">
+                    <p class="text-blue-700 underline text-xl font-black mb-2 uppercase font-sans">PubMed / GeneCards</p>
+                    <p class="opacity-70 leading-relaxed italic dynamic-p text-sm">נתונים גנטיים על מוטציית ELP1 (IKBKAP) שפוענחה ב-2001 ומנגנוני RNA Splicing.</p>
                 </div>
                 <div class="p-8 bg-white rounded-3xl border shadow-sm transition-transform hover:scale-105">
                     <p class="text-blue-700 underline text-xl font-black mb-2 uppercase">העמותה הישראלית</p>
-                    <p class="opacity-70 leading-relaxed italic dynamic-p text-sm">נתוני הקמה (1983), פרויקט 365, ומידע על המרכזים בהדסה ותל השומר (fdisrael.org.il).</p>
-                </div>
-                <div class="p-8 bg-white rounded-3xl border shadow-sm transition-transform hover:scale-105">
-                    <p class="text-blue-700 underline text-xl font-black mb-2 uppercase font-sans">PubMed / TAU Labs</p>
-                    <p class="opacity-70 leading-relaxed italic dynamic-p text-sm">נתונים על מוטציית ELP1 ומנגנוני RNA Splicing (Weil/Ast).</p>
-                </div>
-                <div class="p-8 bg-white rounded-3xl border shadow-sm transition-transform hover:scale-105">
-                    <p class="text-blue-700 underline text-xl font-black mb-2 uppercase">Hadassah / Sheba</p>
-                    <p class="opacity-70 leading-relaxed italic dynamic-p text-sm">מידע קליני בניהול פרופ' חני מעיין וד''ר אלומה בת-אל.</p>
+                    <p class="opacity-70 leading-relaxed italic dynamic-p text-sm">נתוני הקמה (1983) ופירוט סל שירותי פרויקט 365 (fdisrael.org.il).</p>
                 </div>
             </div>
             <div class="mt-24 opacity-30 text-[11px] font-black uppercase tracking-widest italic leading-none">
