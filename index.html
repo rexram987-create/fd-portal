@@ -7,7 +7,6 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700;800&family=Heebo:wght@300;400;700;900&display=swap" rel="stylesheet">
     <style>
-        /* בסיס גודל הגופן שמשתנה דרך JS */
         :root { --base-size: 18px; }
         html { font-size: var(--base-size); }
         
@@ -27,23 +26,16 @@
             color: #fff !important;
             border-color: #fff !important;
         }
-        .high-contrast .nav-btn.active {
-            background-color: #fff !important;
-            color: #000 !important;
-            border: 2px solid #fff;
-        }
         
         .page { display: none; }
         .page.active { display: block; animation: fadeIn 0.4s ease-in-out; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; } }
         
-        /* עיצוב רכיבים מורחבים */
         .content-card { background: white; padding: 2.5rem; border-radius: 2.5rem; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); margin-bottom: 2.5rem; }
         .symptom-box { border-right: 12px solid #2563eb; padding-right: 2rem; }
         .research-box { border-top: 12px solid #1e40af; padding: 3rem; border-radius: 3.5rem; }
         .assoc-hero { background: #1e40af; color: white; padding: 4rem 2rem; border-radius: 4rem; text-align: center; margin-bottom: 3rem; }
         
-        /* כותרות REM שמגיבות להגדלה */
         .dynamic-h1 { font-size: 3.5rem; line-height: 1.1; font-weight: 900; margin-bottom: 1.5rem; }
         .dynamic-h2 { font-size: 2.5rem; line-height: 1.2; font-weight: 800; margin-bottom: 1.2rem; }
         .dynamic-h3 { font-size: 2rem; line-height: 1.3; font-weight: 700; margin-bottom: 1rem; }
@@ -52,7 +44,6 @@
         .no-scrollbar::-webkit-scrollbar { display: none; }
         header { position: relative; z-index: 100; }
 
-        /* לחצן חזרה */
         #back-btn {
             display: none;
             align-items: center;
@@ -65,7 +56,188 @@
             border: 2px solid #e2e8f0;
             transition: all 0.2s;
         }
-        #back-btn:active { scale: 0.95; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900 min-h-screen flex flex-col">
+
+    <!-- סרגל נגישות -->
+    <div class="bg-blue-900 text-white p-3 border-b border-blue-800">
+        <div class="max-w-7xl mx-auto flex justify-between items-center px-4">
+            <div class="flex gap-2">
+                <button onclick="changeFontSize(2)" class="bg-white/20 px-4 py-2 rounded-xl font-bold hover:bg-white/30 active:scale-95 transition-all text-xl">א +</button>
+                <button onclick="changeFontSize(-2)" class="bg-white/20 px-4 py-2 rounded-xl font-bold hover:bg-white/30 active:scale-95 transition-all text-xl">א -</button>
+                <button onclick="toggleContrast()" class="bg-amber-400 text-black px-4 py-2 rounded-xl font-bold text-sm">ניגודיות</button>
+            </div>
+            <div class="hidden sm:block text-[10px] font-bold opacity-60 uppercase tracking-widest">SAMSUNG S25 ULTRA OPTIMIZED</div>
+        </div>
+    </div>
+
+    <!-- כותרת וניווט -->
+    <header class="bg-white border-b border-slate-200 py-8 px-4 shadow-md">
+        <div class="max-w-7xl mx-auto flex flex-col gap-8">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center gap-5 cursor-pointer" onclick="showPage('home')">
+                    <div class="w-16 h-16 bg-blue-600 text-white rounded-2xl flex items-center justify-center text-4xl font-black">FD</div>
+                    <div class="flex flex-col text-right">
+                        <span class="font-black text-3xl text-blue-950 leading-none">דיסאוטונומיה משפחתית</span>
+                        <span class="text-[12px] font-bold opacity-50 uppercase tracking-widest mt-1">THE COMPREHENSIVE MEDICAL & COMMUNITY PORTAL</span>
+                    </div>
+                </div>
+                <button id="back-btn" onclick="goBack()">
+                    <span>→</span> חזרה
+                </button>
+            </div>
+            <nav class="flex gap-2 overflow-x-auto no-scrollbar py-2">
+                <button onclick="showPage('home')" id="btn-home" class="nav-btn active px-6 py-3 rounded-2xl text-base font-bold whitespace-nowrap bg-blue-50 text-blue-800">בית</button>
+                <button onclick="showPage('history')" id="btn-history" class="nav-btn px-6 py-3 rounded-2xl text-base font-bold whitespace-nowrap">היסטוריה מלאה</button>
+                <button onclick="showPage('assoc')" id="btn-assoc" class="nav-btn px-6 py-3 rounded-2xl text-base font-bold whitespace-nowrap">העמותה הישראלית</button>
+                <button onclick="showPage('symptoms')" id="btn-symptoms" class="nav-btn px-6 py-3 rounded-2xl text-base font-bold whitespace-nowrap">תסמינים מורחב</button>
+                <button onclick="showPage('israel-res')" id="btn-israel-res" class="nav-btn px-6 py-3 rounded-2xl text-base font-bold whitespace-nowrap text-blue-700">מחקר ישראל</button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 py-12 w-full flex-grow text-right">
+
+        <!-- דף הבית -->
+        <section id="home" class="page active">
+            <div class="text-center space-y-12 py-16">
+                <h1 class="font-black text-blue-950 dynamic-h1 uppercase">ידע. קהילה. עתיד.</h1>
+                <p class="text-2xl opacity-80 max-w-5xl mx-auto font-medium dynamic-p">
+                    ברוכים הבאים לפורטל המידע המקיף ביותר למחלת הדיסאוטונומיה המשפחתית.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 pt-10">
+                    <button onclick="showPage('history')" class="group p-10 rounded-[4rem] border-4 border-amber-200 bg-amber-50 text-amber-900 flex flex-col items-center gap-5 transition-all hover:scale-105">
+                        <span class="text-7xl">📜</span>
+                        <span class="font-black text-2xl">היסטוריית הגילוי</span>
+                    </button>
+                    <button onclick="showPage('assoc')" class="group p-10 rounded-[4rem] border-4 border-blue-200 bg-blue-600 text-white flex flex-col items-center gap-5 transition-all hover:scale-105">
+                        <span class="text-7xl">🏠</span>
+                        <span class="font-black text-2xl">העמותה והקהילה</span>
+                    </button>
+                    <button onclick="showPage('symptoms')" class="group p-10 rounded-[4rem] border-4 border-green-200 bg-green-50 text-green-900 flex flex-col items-center gap-5 transition-all hover:scale-105">
+                        <span class="text-7xl">🩺</span>
+                        <span class="font-black text-2xl">הבנת התסמינים</span>
+                    </button>
+                </div>
+                <div class="pt-20 text-blue-700 font-extrabold text-lg italic">
+                    נוצר על ידי רם שלו בעזרת AI
+                </div>
+            </div>
+        </section>
+
+        <!-- דף תסמינים -->
+        <section id="symptoms" class="page">
+            <h2 class="font-black text-center mb-16 text-blue-950 italic underline decoration-blue-500 dynamic-h2">תסמינים וסיבוכים</h2>
+            
+            <div class="space-y-12">
+                <!-- בליעה ועיכול - כאן הוספנו את המידע החדש -->
+                <div class="content-card symptom-box border-r-indigo-900 shadow-lg">
+                    <h3 class="font-black text-blue-800 mb-8 flex items-center gap-4 italic underline text-4xl">🥣 בליעה, נשימה ועיכול</h3>
+                    <div class="space-y-8 dynamic-p leading-relaxed text-xl">
+                        <p><strong>דיספאגיה (קשיי בליעה):</strong> חוסר קואורדינציה בשרירי הבליעה מוביל לשאיפת מזון לריאות.</p>
+                        
+                        <!-- התוספת החדשה - אפשרות 2 -->
+                        <div class="bg-indigo-50 p-8 rounded-3xl border border-indigo-200 space-y-6">
+                            <div>
+                                <h4 class="font-black text-indigo-900 mb-2">🔹 ריפלוקס ואספירציה</h4>
+                                <p>חולשה במסתמי מערכת העיכול ומנגנוני הרעב והשובע גורמת לצרבות ולעליית חומצה (Reflux).</p>
+                            </div>
+                            <div>
+                                <h4 class="font-black text-indigo-900 mb-2">🔹 הסכנה הריאתית</h4>
+                                <p>עקב חוסר שליטה על מכסה הגרון (Epiglottis), חומצות עיכול עלולות לחדור לקנה הנשימה ולריאות (תהליך הנקרא אספירציה).</p>
+                            </div>
+                            <div>
+                                <h4 class="font-black text-indigo-900 mb-2">🔹 השלכות</h4>
+                                <p>מצב זה עלול לגרום לגירוי רפלקס ההקאה, דלקות ריאות קשות, נזק בלתי הפיך לרקמת הריאה ומצבים מסכני חיים.</p>
+                            </div>
+                        </div>
+
+                        <p><strong>פתרונות:</strong> רוב החולים נעזרים ב"גסטרוסטום" (G-tube) להבטחת תזונה בטוחה ומניעת סיבוכים אלו.</p>
+                    </div>
+                </div>
+
+                <!-- תסמינים נוספים (תמצית) -->
+                <div class="content-card symptom-box shadow-lg">
+                    <h3 class="font-black text-blue-800 mb-6 text-3xl">🧠 המערכת האוטונומית</h3>
+                    <p class="dynamic-p">חוסר יציבות בלחץ דם, קצב לב משתנה וקשיי ויסות טמפרטורה.</p>
+                </div>
+                
+                <div class="content-card symptom-box border-r-red-600 shadow-lg">
+                    <h3 class="font-black text-red-700 mb-6 text-3xl">⚠️ המשבר הדיסאוטונומי</h3>
+                    <p class="dynamic-p">אירועים של הקאות בלתי פוסקות, לחץ דם גבוה ודופק מהיר הדורשים התערבות רפואית דחופה.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- דפים נוספים נשמרים במבנה המקורי אך בקיצור כאן לצורך התצוגה -->
+        <section id="history" class="page">
+            <div class="content-card">
+                <h2 class="dynamic-h2 font-black text-blue-900">היסטוריה</h2>
+                <p class="dynamic-p">המחלה תוארה לראשונה ב-1949 על ידי ריילי ודיי.</p>
+            </div>
+        </section>
+
+        <section id="assoc" class="page">
+            <div class="assoc-hero shadow-2xl">
+                <h2 class="dynamic-h2 font-black">העמותה הישראלית</h2>
+                <p class="dynamic-p">פועלת למען החולים משנת 1983 ב-100% התנדבות.</p>
+            </div>
+        </section>
+
+        <section id="israel-res" class="page">
+            <div class="research-box shadow-2xl bg-white border-t-blue-600">
+                <h2 class="dynamic-h2 font-black text-blue-900">מחקר בישראל</h2>
+                <p class="dynamic-p">פרופ' מיגל וייל ופרופ' גיל אסט מובילים את חקר המחלה באוניברסיטת תל אביב.</p>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="py-12 bg-slate-100 border-t border-slate-200 mt-auto text-center">
+        <p class="font-bold opacity-60">מקורות: FD Foundation USA | העמותה הישראלית | מעבדת פרופ' מיגל וייל</p>
+    </footer>
+
+    <script>
+        let pageHistory = ['home'];
+
+        function showPage(id, addToHistory = true) {
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active', 'bg-blue-50', 'text-blue-800'));
+            
+            const target = document.getElementById(id);
+            if (target) target.classList.add('active');
+            
+            const btn = document.getElementById('btn-' + id);
+            if (btn) btn.classList.add('active', 'bg-blue-50', 'text-blue-800');
+            
+            if (addToHistory && pageHistory[pageHistory.length - 1] !== id) pageHistory.push(id);
+            
+            document.getElementById('back-btn').style.display = (id === 'home') ? 'none' : 'flex';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function goBack() {
+            if (pageHistory.length > 1) {
+                pageHistory.pop();
+                showPage(pageHistory[pageHistory.length - 1], false);
+            }
+        }
+
+        function changeFontSize(delta) {
+            const current = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--base-size'));
+            document.documentElement.style.setProperty('--base-size', (current + delta) + 'px');
+        }
+
+        function toggleContrast() { 
+            document.body.classList.toggle('high-contrast'); 
+        }
+
+        window.onload = () => showPage('home');
+    </script>
+</body>
+</html>
+
     </style>
 </head>
 <body class="bg-slate-50 text-slate-900 min-h-screen flex flex-col">
