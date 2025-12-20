@@ -134,6 +134,11 @@
                         <p class="text-sm opacity-70">פירוט רפואי ומערכתי</p>
                     </button>
                 </div>
+
+                <!-- קרדיט יוצר - צבע כחול בולט -->
+                <div class="pt-20 text-blue-700 font-extrabold tracking-widest text-lg md:text-xl italic">
+                    נוצר על ידי רם שלו בעזרת AI
+                </div>
             </div>
         </section>
 
@@ -425,7 +430,9 @@
             
             // הצגת/הסתרת לחצן חזרה
             const backBtn = document.getElementById('back-btn');
-            backBtn.style.display = (id === 'home') ? 'none' : 'flex';
+            if (backBtn) {
+                backBtn.style.display = (id === 'home') ? 'none' : 'flex';
+            }
 
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
@@ -457,3 +464,4 @@
     </script>
 </body>
 </html>
+
